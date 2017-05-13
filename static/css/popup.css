@@ -36,8 +36,8 @@ input {
   .pop-layer {
     display: none;
     position: absolute;
-    top: 50%;
-    left: 10%;
+    top: 40%;
+    left: 8%;
     width: 300px;
     height: auto;
     background-color: #fff;
