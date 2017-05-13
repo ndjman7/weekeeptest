@@ -55,7 +55,7 @@
                     <p class="ctxt mb20">Weekeep<br>
                         <form action="{% url 'wkcalendar:add_schedule' %}" method="POST" >
                           {% csrf_token %}
-                          <div class="glyphicon glyphicon-pushpin">
+                          <div>
                             <input type="text" placeholder="제목" name='title'>
                           </div>
 
