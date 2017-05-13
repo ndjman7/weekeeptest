@@ -38,3 +38,14 @@ def add_schedule(request):
             end_time = request.POST['end']
         )
     return redirect('wkcalendar:index')
+
+def delete_schedule(request):
+    if request.method == 'POST':
+        day = request.POST['day']
+        time = request.POST['time']
+        day_schedule = schedule.objects.filter(day=day)
+        for mission in day_schedule:
+            if mission.start_time <= time <= mission.end_time:
+                mission.delete()
+
+    return redirect('wkcalendar:index')

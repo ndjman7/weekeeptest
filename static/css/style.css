@@ -16,20 +16,41 @@
   top: -12px;
 }
 
+
+
 .schedule-rows td[data-selected],
 .schedule-rows td[data-selecting] { background-color: 	#f0f8ff; }
 
 .schedule-rows td[data-disabled] { opacity: 0.55; }
 
-.time-label {
+td.time-label {
   color: #a9a9a9;
+  margin: 0px;
+  padding: 0px;
 }
 
 .schedule-header {
   color: #a9a9a9;
 }
 
-#day-schedule {
-  display: inline-block;
-  float: left;
+@media screen and (max-width: 768px) {
+  #day-schedule {
+    display: inline-block;
+    float: left;
+  }
+  .schedule-table {
+    margin-right:50px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  #day-schedule {
+    display: inline-block;
+    width: 700px;
+    margin-left: 200px;
+  }
+  .schedule-table {
+    margin-right:50px;
+    margin: 0, auto;
+  }
 }

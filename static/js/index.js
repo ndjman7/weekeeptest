@@ -109,14 +109,22 @@
     this.$el.on('click', '.time-slot', function () {
       var day = $(this).data('day');
       if (!plugin.isSelecting()) {  // if we are not in selecting mode
-        if (isSlotSelected($(this))) { plugin.deselect($(this)); }
+        if (isSlotSelected($(this))) {
+          var data = $(this).data('time');
+          var isSum = true;
+          isSum ? $('.sum-layer').fadeIn() : plugin.$el.fadeIn();
+          $('.wk2day').val(day);
+          $('.wk2time').val(data);
+          plugin.deselect($(this)); }
         else {  // then start selecting
           plugin.$selectingStart = $(this);
           $(this).attr('data-selecting', 'selecting');
           plugin.$el.find('.time-slot').attr('data-disabled', 'disabled');
           plugin.$el.find('.time-slot[data-day="' + day + '"]').removeAttr('data-disabled');
+          var isSum = true;
 
         }
+
       } else {  // if we are in selecting mode
         if (day == plugin.$selectingStart.data('day')) {  // if clicking on the same day column
           // then end of selection

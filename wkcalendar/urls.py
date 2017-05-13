@@ -7,4 +7,5 @@ urlpatterns = [
     url('^1$', views.index2, name='index2'),
     url('^popup$', views.popup, name='popup'),
     url('^add_schedule$', views.add_schedule, name='add_schedule'),
+    url('^delete_schedule$', views.delete_schedule, name='delete_schedule'),
 ]
