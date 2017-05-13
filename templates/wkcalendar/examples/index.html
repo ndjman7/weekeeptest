@@ -18,9 +18,11 @@
   </head>
 
   <body>
-    <h1 style="margin:30px 80px 30px;">One Touch</h1>
-
-
+    <div style="margin-top:30px; height:100px;  background-color: white;">
+      <a href="{% url 'wkcalendar:index' %}">
+        <img style="width: 150px; height: 50px; margin:30px 50px;" src="{% static 'img/onetouch2.png' %}" alt="">
+      </a>
+    </div>
     <div class="sum-layer">
         <div class="sumBg"></div>
         <div id="layer1" class="pop-layer">
@@ -35,7 +37,7 @@
                           <input class='wk2time' type="hidden" name="time">
                           <div class="btn-r">
                               <button type='submit' class="btn-layerClose">Delete</button>
-                              <a href="/calendar" class="btn-layerClose">Close</a>
+                              <a href="{% url 'wkcalendar:index' %}" class="btn-layerClose">Close</a>
                           </div>
                         </form>
                     </p>
@@ -64,18 +66,26 @@
                           <input class='wkend'type="hidden" name="end">
 
                           <div class='glyphicon glyphicon-time'>
-                            <div class='wk-layer'>
-                              <span class='wkday'></span>
-                              <span class='wkstart'></span>
+                            <div class='wk-layer' style="margin-left: 20px; margin-right: 70px;">
+                              <div style="margin-bottom: 10px; font-size:13px;">
+                                <span class='wkday' style="font-size:13px;"></span>요일
+                              </div>
+                              <div>
+                                <span class='wkstart'></span>
+                              </div>
                             </div>
                             <div class='wk-layer'>
-                              <span class='wkday'></span>
-                              <span class='wkend'></span>
+                              <div style="margin-bottom: 10px; font-size:13px;">
+                                <span class='wkday' style="font-size:13px;"></span>요일
+                              </div>
+                              <div>
+                                <span class='wkend'></span>
+                              </div>
                             </div>
                           </div>
                           <div class="btn-r">
                               <button type='submit' class="btn-layerClose">Save</button>
-                              <a href="/calendar" class="btn-layerClose">Close</a>
+                              <a href="{% url 'wkcalendar:index' %}" class="btn-layerClose">Close</a>
                           </div>
                         </form>
                     </p>

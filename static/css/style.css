@@ -7,6 +7,7 @@
   padding: 5px;
   background-color: #ffffff;
   cursor: pointer;
+  color: white;
 }
 
 .schedule-rows td:first-child {
@@ -16,17 +17,28 @@
   top: -12px;
 }
 
+th:nth-child(2) {
+    color: #cc0000;
+}
+
+th {
+  padding-bottom: 10px;
+}
 
 
 .schedule-rows td[data-selected],
-.schedule-rows td[data-selecting] { background-color: 	#f0f8ff; }
+.schedule-rows td[data-selecting] { background-color: #304a8a; }
 
 .schedule-rows td[data-disabled] { opacity: 0.55; }
 
 td.time-label {
   color: #a9a9a9;
   margin: 0px;
+
   padding: 0px;
+  padding-right: 5px;
+  padding-bottom: 8px;
+  font-size: 14px;
 }
 
 .schedule-header {

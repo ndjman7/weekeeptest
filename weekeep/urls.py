@@ -20,5 +20,5 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^calendar/', include('wkcalendar.urls')),
+    url(r'^', include('wkcalendar.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
