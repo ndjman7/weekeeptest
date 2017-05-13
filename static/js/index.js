@@ -67,8 +67,13 @@
       var daysInARow = $.map(new Array(days.length), function (_, i) {
         return '<td class="time-slot" data-time="' + hhmm(d) + '" data-day="' + days[i] + '"></td>'
       }).join();
-
-      $el.append('<tr><td class="time-label">' + hmmAmPm(d) + '</td>' + daysInARow + '</tr>');
+      var hour = hmmAmPm(d);
+      if (i%2 ==0) {
+        $el.append('<tr><td class="time-label">' + hour + '</td>' + daysInARow + '</tr>');
+      }
+      else {
+        $el.append('<tr><td class="time-label"></td>' + daysInARow + '</tr>');
+      }
     });
   };
 
