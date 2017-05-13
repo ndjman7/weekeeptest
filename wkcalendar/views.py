@@ -20,7 +20,7 @@ def index2(request):
         data[str(i)] = []
         day_list = schedule.objects.filter(day=i)
         for mission in day_list:
-            data[str(i)].append([mission.start_time,mission.end_time,mission.title])
+            data[str(i)].append([mission.start_time,mission.end_time,mission.title, ])
 
     return render(request, 'wkcalendar/examples/index0.html', {'all_schedule': json.dumps(data)})
 

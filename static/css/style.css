@@ -16,6 +16,9 @@
   position: relative;
   top: -12px;
 }
+.schedule-rows td:nth-child(2) {
+    background-color:  #ffcccc;
+}
 
 th:nth-child(2) {
     color: #cc0000;
