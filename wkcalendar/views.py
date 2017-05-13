@@ -30,13 +30,25 @@ def popup(request):
 
 def add_schedule(request):
     if request.method == 'POST':
-        schedule.objects.create(
-            title = request.POST['title'],
-            location = request.POST['location'],
-            day = request.POST['day'],
-            start_time = request.POST['start'],
-            end_time = request.POST['end']
-        )
+        end = request.POST['end']
+        if request.POST['start'] < end:
+            end = list(end)
+            if end[3]=='3':
+                end[1] = str(int(end[1])+1)
+                end[3]='0'
+            else:
+                end[3]='3'
+            end = ''.join(end)
+            print(request.POST['end'])
+
+            print(end)
+            schedule.objects.create(
+                title = request.POST['title'],
+                location = request.POST['location'],
+                day = request.POST['day'],
+                start_time = request.POST['start'],
+                end_time = end
+            )
     return redirect('wkcalendar:index')
 
 def delete_schedule(request):
