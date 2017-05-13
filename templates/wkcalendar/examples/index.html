@@ -1,0 +1,116 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>성연이의 즐건 하루</title>
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/popup.css" %}">
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+    <style>
+    body { font-family:'roboto'; background-color:#ECF0F1; }
+    </style>
+  </head>
+
+  <body>
+    <div id="jquery-script-menu">
+      <div class="jquery-script-center">
+      <div class="jquery-script-clear"></div>
+      </div>
+    </div>
+    <h1 style="margin:150px auto 30px auto;">One Touch</h1>
+
+    <div class="dim-layer">
+        <div class="dimBg"></div>
+        <div id="layer2" class="pop-layer">
+            <div class="pop-container">
+                <div class="pop-conts">
+                    <!--content //-->
+                    <p class="ctxt mb20">Weekeep<br>
+                        <form action="{% url 'wkcalendar:add_schedule' %}" method="POST" >
+                          {% csrf_token %}
+                          <div class="glyphicon glyphicon-pushpin">
+                            <input type="text" placeholder="제목" name='title'>
+                          </div>
+                          <div class="glyphicon glyphicon-map-marker">
+                            <input type="text" placeholder="위치" name='location'>
+                          </div>
+                          <input class='wkday' type="hidden" name="day">
+                          <input class='wkstart'type="hidden" name="start">
+                          <input class='wkend'type="hidden" name="end">
+
+                          <div class='glyphicon glyphicon-time'>
+                            <div class='wk-layer'>
+                              <span class='wkday'></span>
+                              <span class='wkstart'></span>
+                            </div>
+                            <div class='wk-layer'>
+                              <span class='wkday'></span>
+                              <span class='wkend'></span>
+                            </div>
+                          </div>
+                          <div class="btn-r">
+                              <button type='submit' class="btn-layerClose">Save</button>
+                              <a href="/calendar" class="btn-layerClose">Close</a>
+                          </div>
+
+
+                        </form>
+                    </p>
+
+
+                    <!--// content-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+      <div style="display: block; float:left;">
+        <a href="{% url 'wkcalendar:index2' %}">이전</a>
+      </div>
+      <div id="day-schedule"></div>
+      <div style="display: block; float:left;">
+        <a href="{% url 'wkcalendar:index2' %}">다음</a>
+      </div>
+    </div>
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="{% static "js/index.js" %}"></script>
+      <script>
+        var data = JSON.parse("{{ all_schedule | escapejs }}");
+        (function ($) {
+
+          $("#day-schedule").dayScheduleSelector({
+
+            days: [1, 2, 3, 4, 5, 6, 7],
+            interval: 30,
+            startTime: '0:00',
+            endTime: '24:00'
+
+          });
+          $("#day-schedule").on('selected.artsy.dayScheduleSelector', function (e, selected) {
+            console.log(selected);
+          })
+          $("#day-schedule").data('artsy.dayScheduleSelector').deserialize(
+            data
+            //'1': [['00:30', '11:00'], ['13:00', '16:30']],
+          );
+        })($);
+    </script>
+  </body>
+</html>
