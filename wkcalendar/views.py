@@ -40,8 +40,6 @@ def add_schedule(request):
                 end[3]='3'
             end = ''.join(end)
             print(request.POST['end'])
-
-            print(end)
             schedule.objects.create(
                 title = request.POST['title'],
                 location = request.POST['location'],

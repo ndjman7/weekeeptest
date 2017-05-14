@@ -159,10 +159,17 @@
               $('.wkday').text('토');
             }
             $('.wkday').val(day);
-            $('.wkstart').val(start);
-            $('.wkstart').text(start);
-            $('.wkend').val(end);
-            $('.wkend').text(end);
+            if (start > end) {
+              $('.wkend').val(start);
+              $('.wkend').text(start);
+              $('.wkstart').val(end);
+              $('.wkstart').text(end);
+            } else {
+              $('.wkstart').val(start);
+              $('.wkstart').text(start);
+              $('.wkend').val(end);
+              $('.wkend').text(end);
+            }
 
           })();
         }
