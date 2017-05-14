@@ -173,6 +173,9 @@
 
           })();
         }
+        else {
+          location.reload();
+        }
       }
     });
 
