@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>성연이의 즐건 하루</title>
+    <title>OneTouch</title>
     <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/popup.css" %}">
     <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
@@ -29,7 +29,7 @@
             <div class="pop-container">
                 <div class="pop-conts">
                     <!--content //-->
-                    <p class="ctxt mb20">Weekeep<br>
+                    <p class="ctxt mb20">OneTouch<br>
                         <form action="{% url 'wkcalendar:delete_schedule' %}" method="POST" >
                           {% csrf_token %}
                           <p>일정을 지우시겠습니까?</p>
@@ -52,7 +52,7 @@
             <div class="pop-container">
                 <div class="pop-conts">
                     <!--content //-->
-                    <p class="ctxt mb20">Weekeep<br>
+                    <p class="ctxt mb20">OneTouch<br>
                         <form action="{% url 'wkcalendar:add_schedule' %}" method="POST" >
                           {% csrf_token %}
                           <div>
